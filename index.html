@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0b1519">
+<title>MMAI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;700&family=IBM+Plex+Mono:wght@400&display=swap">
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<section id="auth" hidden>
+  <form id="authF" autocomplete="on">
+    <div class="brand" id="authLogo"></div>
+    <p class="tag">منصة ذكاء اصطناعي تفهم العربية والإنجليزية</p>
+    <input id="aEmail" type="email" placeholder="البريد الإلكتروني" autocomplete="email" required>
+    <input id="aPass" type="password" placeholder="كلمة المرور (8 أحرف على الأقل)" autocomplete="current-password" minlength="8" required>
+    <p id="aErr" class="err" role="alert"></p>
+    <button class="pri" id="aGo">دخول</button>
+    <button type="button" class="lnk" id="aSwap">ليس لديك حساب؟ أنشئ حساباً</button>
+  </form>
+</section>
+
+<div id="app" hidden>
+  <aside id="side">
+    <div class="brand" id="sideLogo"></div>
+    <button class="pri wide" id="newC"></button>
+    <label class="search"><span id="icS"></span><input id="q" type="search" placeholder="ابحث في المحادثات"></label>
+    <nav id="convs" aria-label="المحادثات"></nav>
+    <footer>
+      <button class="row" id="memB"></button>
+      <button class="row" id="theme"></button>
+      <button class="row" id="out"></button>
+      <small id="who"></small>
+    </footer>
+  </aside>
+  <div id="scrim"></div>
+  <main>
+    <header id="top">
+      <button class="ib" id="menu" aria-label="القائمة"></button>
+      <h2 id="ttl">MMAI</h2>
+      <button class="chip" id="toolBtn"></button>
+    </header>
+    <div id="banner" hidden></div>
+    <div id="feed">
+      <section id="home">
+        <div class="big" id="homeLogo"></div>
+        <h1>ماذا نبني اليوم؟</h1>
+        <p>اختر أداة أو ابدأ بالكتابة. كل أداة تعمل بالنموذج نفسه بتعليمات مختصة بها.</p>
+        <div class="grid" id="homeGrid"></div>
+      </section>
+      <div id="list"></div>
+    </div>
+    <div id="comp">
+      <div id="chips"></div>
+      <div class="box">
+        <button class="ib" id="att" aria-label="إرفاق ملف"></button>
+        <textarea id="inp" rows="1" placeholder="اكتب رسالتك…" dir="auto"></textarea>
+        <button class="ib" id="vl" title="لغة الصوت">ع</button>
+        <button class="ib" id="mic" aria-label="إدخال صوتي"></button>
+        <button class="send" id="go" aria-label="إرسال"></button>
+      </div>
+      <input type="file" id="file" hidden accept=".pdf,.txt,.docx,.md,.csv,.json,.js,.ts,.jsx,.tsx,.py,.html,.css,.java,.c,.cpp,.cs,.go,.rs,.php,.sql,.sh,.xml,.yml,.yaml,.kt,.swift,.rb,.log,image/png,image/jpeg,image/webp,image/gif">
+    </div>
+  </main>
+</div>
+
+<dialog id="dTools"><form method="dialog"><h3>مركز الأدوات</h3><div class="grid" id="toolGrid"></div><button class="lnk">إغلاق</button></form></dialog>
+<dialog id="dMem"><form method="dialog"><h3>ذاكرتي</h3><p class="tag">معلومات طلبت من MMAI أن يتذكرها. تُرسل مع كل محادثة، ويمكنك تعديلها أو حذفها في أي وقت.</p><ul id="memL"></ul><div class="addm"><input id="memI" placeholder="أضف معلومة للذاكرة" maxlength="500"><button type="button" class="pri" id="memAdd">إضافة</button></div><button class="lnk">إغلاق</button></form></dialog>
+<div id="toast" role="status"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/dompurify@3.1.6/dist/purify.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
